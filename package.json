@@ -1,0 +1,30 @@
+{
+  "name": "infinite-scroll",
+  "version": "1.0.0",
+  "description": "infinite scrolling demonstration in web applications",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/srijitasd/infinite-scroll.git"
+  },
+  "keywords": [
+    "infinite",
+    "scroll",
+    "NodeJs",
+    "Ajax",
+    "javascript"
+  ],
+  "author": "Srijit Das",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/srijitasd/infinite-scroll/issues"
+  },
+  "homepage": "https://github.com/srijitasd/infinite-scroll#readme",
+  "dependencies": {
+    "env-cmd": "^10.1.0",
+    "express": "^4.18.1"
+  }
+}
