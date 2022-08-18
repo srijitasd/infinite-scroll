@@ -35,7 +35,7 @@ h1 {
   margin-bottom: 0.5rem;
 }
 
-.blogs_parent_cont p {
+.blogs_parent_cont .note_text {
   text-align: center;
   position: relative;
   margin: 2rem auto;

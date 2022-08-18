@@ -83,7 +83,7 @@ const fetchInfiniteItems = async (parentCont, container, api, data, scrollFunc, 
     if (res.length <= 0) {
       document
         .querySelector(container)
-        .insertAdjacentHTML("beforeend", "<p>No more items to load</p>");
+        .insertAdjacentHTML("beforeend", "<p class='note_text'>No more items to load</p>");
       window.removeEventListener("scroll", scrollFunc);
       return;
     }
@@ -91,7 +91,7 @@ const fetchInfiniteItems = async (parentCont, container, api, data, scrollFunc, 
     if (res.length < 8) {
       document
         .querySelector(container)
-        .insertAdjacentHTML("beforeend", "<p>you have reached the end</p>");
+        .insertAdjacentHTML("beforeend", "<p class='note_text'>you have reached the end</p>");
       window.removeEventListener("scroll", scrollFunc);
       return;
     }
