@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NodeJs Infinite scroll</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+
+  <body>
+    <h1>Posts</h1>
+    <div class="blogs_parent_cont">
+      <div id="blogs_card_container"></div>
+    </div>
+
+    <script id="post-template" type="text/html">
+      <div class="post_card">
+        <img src="./images/{{image}}" alt="" />
+        <h3>{{ title }}</h3>
+        <p>{{body}}</p>
+      </div>
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.0.1/mustache.min.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"
+      integrity="sha512-odNmoc1XJy5x1TMVMdC7EMs3IVdItLPlCeL5vSUPN2llYKMJ2eByTTAIiiuqLg+GdNr9hF6z81p27DArRFKT7A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="./js/script.js"></script>
+
+    <script>
+      window.addEventListener("load", async () => {
+        const template = document.getElementById("post-template").innerHTML;
+        try {
+          const axiosRequest = await axios.post("/posts", { start: 0, end: 9 });
+          const res = await axiosRequest.data;
+          console.log(res.length);
+
+          const target = document.querySelector("#blogs_card_container");
+          res.forEach((item) => {
+            mustache(template, item, target);
+          });
+
+          infiniteLoad({
+            parentCont: "#blogs_card_container",
+            container: ".blogs_parent_cont",
+            navbar: 0,
+            responsive: [
+              {
+                breakPoint: 1000,
+                symbol: ">",
+                offsetTop: 300,
+              },
+              {
+                breakPoint: 1920,
+                symbol: ">=",
+                offsetTop: 100,
+              },
+              {
+                breakPoint: 1000,
+                symbol: "<=",
+                offsetTop: 0,
+              },
+            ],
+            length: 9,
+            api: "/posts",
+            templateId: "post-template",
+          });
+        } catch (error) {
+          console.log(error);
+        }
+      });
+    </script>
+  </body>
+</html>

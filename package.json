@@ -4,7 +4,7 @@
   "description": "infinite scrolling demonstration in web applications",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "env-cmd -f ./config/dev.env nodemon index.js"
   },
   "repository": {
     "type": "git",
