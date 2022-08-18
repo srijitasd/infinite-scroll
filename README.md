@@ -2,7 +2,7 @@
 
 Pagination becomes a necessary thing in a web application when the amount of data is huge. Traditional pagination seperates the data in number of pages, so that the user toggles through the pages to vie the fetched data. The user falls into a loophole of clicking a button after viewing 10-20 data. Traditional pagination hugely affect the **user ecperience** and increases clicks by a huge margin.
 
-The modern way of handling large number of data is `INFINITE LOADING` , everytime the user reaches the end of the previously loaded data client side _javascript_ requests the next set of data from the server and thus eliminates clicks and loads data as long the user scrolls in the web application.
+The modern way of handling large number of data is `INFINITE SCROLLING` , everytime the user reaches the end of the previously loaded data client side _javascript_ requests the next set of data from the server and thus eliminates clicks and loads data as long the user scrolls in the web application.
 
 The best thing about this demonstration is that it can be integrated in any project and you can use any **back-end language of your choice!**
 It uses `client side javascript` to do all the calculations necessary thus removing the dependency on server side languages.
